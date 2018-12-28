@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Visit Nepal 2020</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href={{url_for('static', filename="css/bootstrap.min.css")}}>
+  <link rel="stylesheet" href={{url_for('static', filename="css/style.css")}}>
+</head>
+
+<body id="home" data-spy="scroll" data-target="#main-nav">
+  <!---NAVBAR-->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top py-4" id="main-nav">
+    <div class="container">
+      <a href="base.html" class="navbar-brand">
+        <img src="img/logo.png" width="60" height="60" alt="" class="img-fluid">
+        <h3 class="d-inline align-middle">Visit Nepal 2020</h3>
+      </a>
+
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="navCollapse" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="{{url_for('home')}}" class="nav-link">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#enticements" class="nav-link">Enticements</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#todos" class="nav-link">To Do's</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+
+          {% if current_user.is_authenticated %}
+          <li class='nav-item'> <a class="nav-link" href="{{url_for('logout')}}"></a></li>
+          {% else %}
+          <li class='nav-item'> <a class="nav-link" href="{{url_for('login')}}">Log In</a>
+          <li class='nav-item'> <a class="nav-link" href="{{url_for('register')}}">register</a>
+          </li>
+          {% endif %}
+        </ul>
+        
+
+        <li class="nav-item">
+          <a href="refer.html" class="nav-link">Refer & Earn</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--CAROUSEL SLIDER-->
+  <div id="carousel">
+    <div class="carousel slide" id="myCarousel" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="carousel-item carousel-image-1 active">
+          <div class="container">
+            <div class="carousel-caption d-none d-sm-block text-right mb-5">
+              <h3 class="display-4">Nyatapola Temple</h3>
+              <p class="lead">Nyatapola Temple is a 5-Roof Temple, Meaning is Five Storeys Roofed Temple. Pagoda Style
+                temple located in Bhaktapur, Nepal.</p>
+              <a href="#" class="btn btn-danger btn-lg">Visit Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item carousel-image-2">
+          <div class="container">
+            <div class="carousel-caption d-none d-sm-block mb-5">
+              <h3 class="display-4">Lumbini</h3>
+              <p class="lead">Lumbini, a buddhist pilgrimage site. Also a birthplace of Gautam Buddha.</p>
+              <a href="#" class="btn btn-info btn-lg">Visit Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item carousel-image-3 mb-5">
+          <div class="container">
+            <div class="carousel-caption d-none d-sm-block mb-5">
+              <h3 class="display-4">BoudhaNath</h3>
+              <p class="lead">BoudhaNath is a stupa in Kathmandu, Nepal.</p>
+              <a href="#" class="btn btn-primary btn-lg">Visit Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item carousel-image-4 mb-5">
+          <div class="container">
+            <div class="carousel-caption d-none d-sm-block mb-5">
+              <h3 class="display-4">Mount Everest</h3>
+              <p class="lead">Mount Everest, the highest peak in the world. </p>
+              <a href="#" class="btn btn-primary btn-lg">Visit Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item carousel-image-5 mb-5">
+          <div class="container">
+            <div class="carousel-caption d-none d-sm-block mb-5">
+              <h3 class="display-4">Visit Nepal 2020</h3>
+              <p class="lead">After the info of Visit Nepal Year 1998 and Nepal Tourism Year 2011, the Tourism Board
+                of Nepal introduced Visit Nepal Campaign 2020.</p>
+              <a href="#" class="btn btn-primary btn-lg">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#myCarousel" class="carousel-control-prev" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+
+      <a href="#myCarousel" class="carousel-control-next" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+  </div>
+
+  <!--HOME HEADING SECTION-->
+  <div id="home-heading" class="p-5">
+    <div class="dark-overlay">
+      <div class="container pt-5">
+        <div class="row">
+          <div class="col">
+            <h1>Let's Visit Nepal!!</h1>
+            <p class="d-none d-md-block">
+              - Highest Peak In The world <br>
+              - Landlord of Gautam Buddha
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--ENTICEMENTS-->
+  <section id="enticements" class="p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2 class="display-4 text-center mb-2">World Heritages of Nepal</h2>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card text-white text-center bg-primary">
+
+            <div class="card-body">
+              <img src="img/PashupatiNath.jpg" alt="" class="img-fluid mb-2">
+              <h3>Pashupati Nath Temple</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, perspiciatis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card text-white text-center bg-info">
+
+            <div class="card-body">
+              <img src="img/Sowyambhu.jpg" alt="" class="img-fluid mb-2">
+              <h3>Swayambhu Nath</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, perspiciatis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card text-white text-center bg-primary">
+
+            <div class="card-body">
+              <img src="img/Boudha.jpg" alt="" class="img-fluid mb-2">
+              <h3>Boudha Nath</h3>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, perspiciatis.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card text-white text-center bg-info">
+
+            <div class="card-body">
+              <img src="img/Ktmdurbar.jpg" alt="" class="img-fluid mb-2">
+              <h3>Kathmandu Durbar Square</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, perspiciatis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card text-white text-center bg-primary">
+
+            <div class="card-body">
+              <img src="img/Patandurbar.jpg" alt="" class="img-fluid mb-2">
+              <h3>Patan Durbar Square</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, perspiciatis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card text-white text-center bg-info">
+
+            <div class="card-body">
+              <img src="img/Bktdurbar.jpg" alt="" class="img-fluid mb-2">
+              <h3>Bhaktapur Durbar Square</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, perspiciatis.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card text-white text-center bg-primary">
+
+            <div class="card-body">
+              <img src="img/Changunarayan.jpg" alt="" class="img-fluid mb-2">
+              <h3>Changunarayan Temple</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, perspiciatis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card text-white text-center bg-info">
+
+            <div class="card-body">
+              <img src="img/Lumbini.jpg" alt="" class="img-fluid mb-2">
+              <h3>Lumbini</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, perspiciatis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card text-white text-center bg-primary">
+
+            <div class="card-body">
+              <img src="img/ChitwanNP.jpg" alt="" class="img-fluid mb-2">
+              <h3>Chitwan National Park</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, perspiciatis.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--TO DOs-->
+  <section id="todos">
+    <div class="container">
+      <h2 class="display-4 text-center">To Do's</h2>
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                aria-controls="collapseOne">
+                Sky Diving
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <img src="img/Skydiving.jpeg" alt="" class="img-fluid">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+              moon
+              officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+              wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+              Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad
+              vegan
+              excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth
+              nesciunt
+              you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                aria-controls="collapseTwo">
+                Bungee Jumping
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              <img src="img/Bungee.jpg" alt="" class="img-fluid">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+              moon
+              officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+              wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+              Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad
+              vegan
+              excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth
+              nesciunt
+              you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                aria-controls="collapseThree">
+                Mountaineering
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              <img src="img/Mountaineering.jpg" alt="" class="img-fluid"><br>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+              moon
+              officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+              wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+              Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad
+              vegan
+              excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth
+              nesciunt
+              you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                aria-controls="collapseThree">
+                Rafting and Kayaking
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+              <img src="img/Rafting.jpg" alt="" class="img-fluid"><br>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+              moon
+              officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+              wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+              Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad
+              vegan
+              excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth
+              nesciunt
+              you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+                aria-controls="collapseFive">
+                Paragliding
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+            <div class="card-body">
+              <img src="img/Paragliding.jpg" alt="" class="img-fluid"> <br>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+              moon
+              officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+              wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+              Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad
+              vegan
+              excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth
+              nesciunt
+              you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
